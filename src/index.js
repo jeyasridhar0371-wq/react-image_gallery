@@ -1,17 +1,67 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom/client"
+import one from "./assets/img1.png"
+import two from "./assets/img2.png"
+import three from "./assets/img3.png"
+import four from "./assets/img4.png"
+import five from "./assets/img5.png"
+import six from "./assets/img6.png"
+import seven from "./assets/img7.png"
+import eight from "./assets/img8.png"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"))
+
+// Search section
+function Imagecard(props){
+  return(
+   <div style={{display:"flex",flexDirection:"column",alignItems:"center",border:"1px solid black",padding:"10px",margin:"10px",backgroundColor:"white",flexBasis:"20%"}} >
+    <img src={props.imgSrc} alt="not found" style={{width:"100%",height:"100%"}}></img>
+    <h2>{props.imgName}</h2>
+   </div>
+  )
+}
+
+var item = [
+  {
+    imgName:"julie's Rabbit Ears",
+    imgSrc:one
+  },
+   {
+    imgName:"The Innocent Look",
+    imgSrc:two
+  },
+  {
+    imgName:"Big Eyed Buggy",
+    imgSrc:three
+  },
+   {
+    imgName:"The Saint Doggo",
+    imgSrc:four
+  },
+   {
+    imgName:"Big Eye Buggy",
+    imgSrc:five
+  },
+   {
+    imgName:"The Innocent Look",
+    imgSrc:six
+  },
+  {
+    imgName:"The Saint Doggo",
+    imgSrc:seven
+  },
+   {
+    imgName:"Julie's Rabbit Ears",
+    imgSrc:eight
+  }
+]
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    <div style={{display:"flex",justifyContent:"space-around",flexWrap:"wrap",backgroundColor:"gray"}}>
+      {
+        item.map(function(els) {
+         return (<Imagecard imgName={els.imgName} imgSrc={els.imgSrc}></Imagecard>)
+      })
+      }
+    </div>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)
